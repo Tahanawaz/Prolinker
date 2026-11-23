@@ -1,0 +1,48 @@
+{
+  "name": "prolinker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "ProLinker — connecting customers with skilled workers across Pakistan",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n server,client -c blue,green \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev -w @prolinker/server",
+    "dev:client": "npm run dev -w @prolinker/client",
+    "build": "npm run build -w @prolinker/server && npm run build -w @prolinker/client",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test",
+    "db:link": "supabase link",
+    "db:push": "supabase db push",
+    "db:push:seed": "supabase db push --include-seed",
+    "db:types": "supabase gen types typescript --linked --schema public > shared/src/types/database.types.ts && prettier --write shared/src/types/database.types.ts",
+    "seed:users": "npm run seed:users -w @prolinker/server"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.8",
+    "globals": "^17.14.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "supabase": "^3.3.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.73.0"
+  }
+}
