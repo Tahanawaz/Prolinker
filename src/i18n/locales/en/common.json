@@ -1,0 +1,21 @@
+{
+  "appName": "ProLinker",
+  "tagline": "Trusted workers, one tap away",
+  "home": {
+    "title": "Find trusted workers near you",
+    "subtitle": "Plumbers, electricians, carpenters, painters, AC technicians and more, verified and ready to help."
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "ur": "اردو"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you are looking for doesn't exist or has moved.",
+    "home": "Go to home"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again."
+  }
+}
