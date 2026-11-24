@@ -1,21 +1,14 @@
 {
   "appName": "ProLinker",
   "tagline": "Trusted workers, one tap away",
+  "home": {
+    "title": "Find trusted workers near you",
+    "subtitle": "Plumbers, electricians, carpenters, painters, AC technicians and more, verified and ready to help."
+  },
   "language": {
     "label": "Language",
     "en": "English",
     "ur": "اردو"
-  },
-  "setup": {
-    "title": "Phase 1 foundation is running",
-    "subtitle": "Monorepo, API, database migrations and security baseline are in place. The public website arrives in Phase 2.",
-    "apiStatus": "API",
-    "dbStatus": "Database",
-    "checking": "Checking…",
-    "online": "Online",
-    "offline": "Unreachable",
-    "degraded": "Degraded",
-    "retry": "Check again"
   },
   "notFound": {
     "title": "Page not found",

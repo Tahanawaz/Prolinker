@@ -13,7 +13,6 @@ export default tseslint.config(
       '**/build/**',
       '**/coverage/**',
       '**/node_modules/**',
-      'supabase/.temp/**',
       'shared/src/types/database.types.ts',
     ],
   },
@@ -60,12 +59,8 @@ export default tseslint.config(
     },
   },
   {
-    files: ['server/**/*.ts', 'shared/**/*.ts'],
+    files: ['shared/**/*.ts'],
     languageOptions: { globals: globals.node },
-  },
-  {
-    files: ['server/scripts/**/*.ts'],
-    rules: { 'no-console': 'off' },
   },
   {
     files: ['**/*.{js,cjs,mjs}'],
