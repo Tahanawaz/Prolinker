@@ -39,42 +39,54 @@ export function Hero() {
       <div aria-hidden="true" className="bg-grid-dark mask-fade-b absolute inset-0 -z-10" />
       <div
         aria-hidden="true"
-        className="absolute -top-40 start-[-10%] -z-10 h-[34rem] w-[34rem] rounded-full bg-brand-500/30 blur-3xl"
+        className="absolute -top-40 start-[-10%] -z-10 h-[34rem] w-[34rem] animate-blob rounded-full bg-brand-500/30 blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="absolute end-[-10%] top-1/3 -z-10 h-[28rem] w-[28rem] rounded-full bg-accent-400/15 blur-3xl"
+        className="absolute end-[-10%] top-1/3 -z-10 h-[28rem] w-[28rem] animate-blob-slow rounded-full bg-accent-400/15 blur-3xl"
       />
 
-      <div className="container grid items-center gap-16 pb-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:pb-32">
+      <div className="container grid items-center gap-12 pb-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 lg:pb-28 xl:gap-16">
         {/* Copy + search */}
-        <div>
+        <div className="min-w-0">
           <div className="animate-fade-up">
-            <Badge tone="dark" icon={<span className="h-1.5 w-1.5 rounded-full bg-accent-400" />}>
+            <Badge
+              tone="dark"
+              icon={
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-75" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-400" />
+                </span>
+              }
+            >
               {copy.badge}
             </Badge>
           </div>
 
-          <h1 className="mt-6 animate-fade-up text-balance text-[2.6rem] font-extrabold leading-[1.08] text-white [animation-delay:80ms] sm:text-6xl lg:text-[4.1rem]">
-            {copy.titleStart} <span className="text-gradient-brand">{copy.titleHighlight}</span>{' '}
+          <h1 className="mt-6 max-w-[16ch] animate-fade-up text-balance text-[2.5rem] font-extrabold leading-[1.06] text-white [animation-delay:80ms] sm:text-[3.25rem] lg:text-[3.5rem] xl:text-[3.9rem]">
+            {copy.titleStart}{' '}
+            <span className="text-gradient-brand animate-gradient-x bg-[length:200%_auto]">
+              {copy.titleHighlight}
+            </span>{' '}
             {copy.titleEnd}
           </h1>
 
-          <p className="mt-6 max-w-xl animate-fade-up text-pretty text-lg text-brand-100/80 [animation-delay:160ms]">
+          <p className="mt-6 max-w-xl animate-fade-up text-pretty text-base text-brand-100/80 [animation-delay:160ms] sm:text-lg">
             {copy.subtitle}
           </p>
 
+          {/* Two fields side by side; the button gets its own row until there is room for all three. */}
           <form
             onSubmit={onSubmit}
             role="search"
-            className="mt-9 grid animate-fade-up gap-2 rounded-3xl bg-white p-2 shadow-lift [animation-delay:240ms] sm:grid-cols-[1fr_1fr_auto]"
+            className="mt-9 grid max-w-2xl animate-fade-up gap-2 rounded-3xl bg-white p-2 shadow-lift ring-1 ring-white/10 [animation-delay:240ms] sm:grid-cols-2 2xl:grid-cols-[1fr_1fr_auto]"
           >
-            <div className="relative">
+            <div className="relative min-w-0">
               <label htmlFor={serviceId} className="sr-only">
                 {copy.serviceLabel}
               </label>
               <Search
-                className="pointer-events-none absolute start-4 top-1/2 h-5 w-5 -translate-y-1/2 text-brand-600"
+                className="pointer-events-none absolute start-3.5 top-1/2 h-5 w-5 -translate-y-1/2 text-brand-600"
                 aria-hidden="true"
               />
               <select
@@ -83,7 +95,7 @@ export function Hero() {
                 onChange={(event) => {
                   setService(event.target.value);
                 }}
-                className="h-14 w-full rounded-2xl border-0 bg-slate-50 pe-10 ps-12 font-medium text-ink focus:bg-white focus:ring-2 focus:ring-brand-500/40"
+                className="h-14 w-full truncate rounded-2xl border-0 bg-slate-50 pe-9 ps-11 text-[0.95rem] font-medium text-ink transition-colors hover:bg-slate-100 focus:bg-white focus:ring-2 focus:ring-brand-500/40"
               >
                 <option value="">{copy.servicePlaceholder}</option>
                 {CATEGORY_SLUGS.map((slug) => (
@@ -93,12 +105,12 @@ export function Hero() {
                 ))}
               </select>
             </div>
-            <div className="relative">
+            <div className="relative min-w-0">
               <label htmlFor={cityId} className="sr-only">
                 {copy.cityLabel}
               </label>
               <MapPin
-                className="pointer-events-none absolute start-4 top-1/2 h-5 w-5 -translate-y-1/2 text-brand-600"
+                className="pointer-events-none absolute start-3.5 top-1/2 h-5 w-5 -translate-y-1/2 text-brand-600"
                 aria-hidden="true"
               />
               <select
@@ -107,7 +119,7 @@ export function Hero() {
                 onChange={(event) => {
                   setCity(event.target.value);
                 }}
-                className="h-14 w-full rounded-2xl border-0 bg-slate-50 pe-10 ps-12 font-medium text-ink focus:bg-white focus:ring-2 focus:ring-brand-500/40"
+                className="h-14 w-full truncate rounded-2xl border-0 bg-slate-50 pe-9 ps-11 text-[0.95rem] font-medium text-ink transition-colors hover:bg-slate-100 focus:bg-white focus:ring-2 focus:ring-brand-500/40"
               >
                 <option value="">{copy.cityPlaceholder}</option>
                 {siteConfig.cities.map((name) => (
@@ -117,7 +129,12 @@ export function Hero() {
                 ))}
               </select>
             </div>
-            <Button type="submit" variant="primary" size="lg" className="h-14 rounded-2xl">
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              className="h-14 rounded-2xl sm:col-span-2 2xl:col-span-1"
+            >
               <Search className="h-5 w-5" aria-hidden="true" />
               {copy.searchCta}
             </Button>
@@ -129,7 +146,7 @@ export function Hero() {
               <Link
                 key={slug}
                 to={`/services#${slug}`}
-                className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-brand-100/90 transition hover:border-accent-300/60 hover:text-white"
+                className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-brand-100/90 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent-300/60 hover:bg-white/10 hover:text-white"
               >
                 {categories[slug].name}
               </Link>
@@ -138,7 +155,7 @@ export function Hero() {
         </div>
 
         {/* Product preview */}
-        <div className="animate-fade-up px-4 py-10 [animation-delay:200ms] sm:px-10 lg:px-6">
+        <div className="min-w-0 px-2 sm:px-6 lg:self-start lg:px-0">
           <HeroMockup />
         </div>
       </div>

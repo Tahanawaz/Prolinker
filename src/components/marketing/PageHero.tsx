@@ -15,11 +15,11 @@ export function PageHero({ content, children }: PageHeroProps) {
       <div aria-hidden="true" className="bg-grid-dark mask-fade-b absolute inset-0 -z-10" />
       <div
         aria-hidden="true"
-        className="absolute -top-32 start-1/2 -z-10 h-[28rem] w-[56rem] -translate-x-1/2 rounded-full bg-brand-500/25 blur-3xl rtl:translate-x-1/2"
+        className="absolute -top-32 start-1/4 -z-10 h-[28rem] w-[40rem] animate-blob rounded-full bg-brand-500/25 blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="absolute -bottom-40 end-0 -z-10 h-80 w-80 rounded-full bg-accent-400/15 blur-3xl"
+        className="absolute -bottom-40 end-0 -z-10 h-80 w-80 animate-blob-slow rounded-full bg-accent-400/15 blur-3xl"
       />
       <div className="container text-center">
         <div className="animate-fade-up">

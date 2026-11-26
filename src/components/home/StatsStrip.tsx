@@ -1,3 +1,4 @@
+import { CountUp } from '@/components/ui/CountUp';
 import { Reveal } from '@/components/ui/Reveal';
 import { useContent } from '@/content';
 
@@ -19,7 +20,7 @@ export function StatsStrip() {
                 className="font-display text-4xl font-extrabold text-brand-800 sm:text-5xl"
                 dir="ltr"
               >
-                {stat.value}
+                <CountUp value={stat.value} />
               </dd>
             </Reveal>
           ))}

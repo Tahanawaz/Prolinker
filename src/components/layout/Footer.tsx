@@ -34,7 +34,7 @@ export function Footer() {
         <div className="relative isolate overflow-hidden rounded-4xl bg-gradient-to-br from-brand-700 via-brand-800 to-brand-900 px-6 py-12 shadow-lift ring-1 ring-white/10 sm:px-12 sm:py-14 lg:flex lg:items-center lg:justify-between lg:gap-12">
           <div
             aria-hidden="true"
-            className="absolute -end-20 -top-24 -z-10 h-72 w-72 rounded-full bg-accent-400/25 blur-3xl"
+            className="absolute -end-20 -top-24 -z-10 h-72 w-72 animate-blob rounded-full bg-accent-400/25 blur-3xl"
           />
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-accent-300">

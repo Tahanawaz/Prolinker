@@ -1,4 +1,11 @@
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type AnimationEvent,
+  type CSSProperties,
+  type ReactNode,
+} from 'react';
 
 import { cn } from '@/lib/cn';
 
@@ -44,7 +51,12 @@ export function Reveal({ children, className, delay = 0, as: Tag = 'div' }: Reve
     };
   }, [visible]);
 
-  const style: CSSProperties | undefined = delay ? { animationDelay: `${delay}ms` } : undefined;
+  // Once the entrance finishes, drop the animation class: a finished `both`-fill
+  // animation would otherwise keep owning `transform` and block hover effects.
+  const [settled, setSettled] = useState(false);
+
+  const style: CSSProperties | undefined =
+    delay && !settled ? { animationDelay: `${delay}ms` } : undefined;
 
   return (
     <Tag
@@ -52,7 +64,10 @@ export function Reveal({ children, className, delay = 0, as: Tag = 'div' }: Reve
         ref.current = node;
       }}
       style={style}
-      className={cn(visible ? 'animate-fade-up' : 'opacity-0', className)}
+      onAnimationEnd={(event: AnimationEvent<HTMLElement>) => {
+        if (event.target === event.currentTarget) setSettled(true);
+      }}
+      className={cn(visible ? (settled ? undefined : 'animate-fade-up') : 'opacity-0', className)}
     >
       {children}
     </Tag>

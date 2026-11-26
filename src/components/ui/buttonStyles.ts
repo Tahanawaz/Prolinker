@@ -6,11 +6,13 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
 const base =
   'inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-xl font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]';
 
+/** Light sweep across the button on hover (pseudo-element, no extra markup). */
+const shine =
+  'relative isolate overflow-hidden before:pointer-events-none before:absolute before:inset-y-0 before:left-0 before:-z-0 before:w-1/3 before:-translate-x-[120%] before:bg-gradient-to-r before:from-transparent before:via-white/35 before:to-transparent hover:-translate-y-0.5 hover:before:animate-shine';
+
 const variants: Record<ButtonVariant, string> = {
-  primary:
-    'bg-brand-700 text-white shadow-sm hover:bg-brand-800 hover:shadow-glow focus-visible:ring-brand-500',
-  accent:
-    'bg-accent-400 text-brand-950 shadow-glow-accent hover:bg-accent-300 focus-visible:ring-accent-400',
+  primary: `${shine} bg-brand-700 text-white shadow-sm hover:bg-brand-800 hover:shadow-glow focus-visible:ring-brand-500`,
+  accent: `${shine} bg-accent-400 text-brand-950 shadow-glow-accent hover:bg-accent-300 focus-visible:ring-accent-400`,
   outline:
     'border border-slate-300 bg-white text-ink hover:border-brand-600 hover:text-brand-800 focus-visible:ring-brand-500',
   ghost: 'text-ink hover:bg-slate-100 focus-visible:ring-brand-500',

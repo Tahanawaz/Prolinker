@@ -84,7 +84,12 @@ export default function TevtaPage() {
           <SectionHeading id="badge-steps-heading" {...copy.steps} />
           <ol className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {copy.steps.items.map((step, index) => (
-              <Reveal as="li" key={step.title} delay={index * 80} className="card relative p-7">
+              <Reveal
+                as="li"
+                key={step.title}
+                delay={index * 80}
+                className="card card-interactive group relative p-7"
+              >
                 <span
                   className="font-display text-5xl font-extrabold text-brand-100"
                   aria-hidden="true"

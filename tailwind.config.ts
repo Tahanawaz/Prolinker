@@ -82,6 +82,35 @@ export default {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
+        'gradient-x': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        blob: {
+          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+          '33%': { transform: 'translate(30px, -40px) scale(1.08)' },
+          '66%': { transform: 'translate(-25px, 20px) scale(0.95)' },
+        },
+        shine: {
+          from: { transform: 'translateX(-120%) skewX(-20deg)' },
+          to: { transform: 'translateX(320%) skewX(-20deg)' },
+        },
+        'scale-in': {
+          from: { opacity: '0', transform: 'scale(0.92) translateY(12px)' },
+          to: { opacity: '1', transform: 'scale(1) translateY(0)' },
+        },
+        'nav-in': {
+          from: { opacity: '0', transform: 'translateY(-100%)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        'grow-x': {
+          from: { transform: 'scaleX(0)' },
+          to: { transform: 'scaleX(1)' },
+        },
+        'soft-pulse': {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgb(16 185 129 / 0.45)' },
+          '50%': { boxShadow: '0 0 0 6px rgb(16 185 129 / 0)' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both',
@@ -90,6 +119,14 @@ export default {
         'float-slow': 'float 8s ease-in-out infinite',
         'slide-down': 'slide-down 0.2s cubic-bezier(0.22, 1, 0.36, 1) both',
         marquee: 'marquee 40s linear infinite',
+        'gradient-x': 'gradient-x 6s ease-in-out infinite',
+        blob: 'blob 18s ease-in-out infinite',
+        'blob-slow': 'blob 24s ease-in-out infinite reverse',
+        shine: 'shine 0.9s ease-out',
+        'scale-in': 'scale-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both',
+        'nav-in': 'nav-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both',
+        'soft-pulse': 'soft-pulse 2.4s ease-in-out infinite',
+        'grow-x': 'grow-x 1.4s cubic-bezier(0.22, 1, 0.36, 1) 1.2s both',
       },
     },
   },

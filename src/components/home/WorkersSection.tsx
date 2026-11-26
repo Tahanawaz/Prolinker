@@ -20,11 +20,11 @@ export function WorkersSection() {
       <div aria-hidden="true" className="bg-grid-dark absolute inset-0 -z-10 opacity-70" />
       <div
         aria-hidden="true"
-        className="absolute -start-40 top-0 -z-10 h-[30rem] w-[30rem] rounded-full bg-brand-500/25 blur-3xl"
+        className="absolute -start-40 top-0 -z-10 h-[30rem] w-[30rem] animate-blob rounded-full bg-brand-500/25 blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="absolute -bottom-40 end-0 -z-10 h-96 w-96 rounded-full bg-accent-400/15 blur-3xl"
+        className="absolute -bottom-40 end-0 -z-10 h-96 w-96 animate-blob-slow rounded-full bg-accent-400/15 blur-3xl"
       />
 
       <div className="container grid items-center gap-14 lg:grid-cols-2 lg:gap-20">

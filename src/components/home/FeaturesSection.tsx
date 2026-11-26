@@ -40,7 +40,7 @@ export function FeaturesSection() {
                 ) : null}
                 <span
                   className={cn(
-                    'relative grid h-12 w-12 place-items-center rounded-2xl',
+                    'icon-pop relative grid h-12 w-12 place-items-center rounded-2xl',
                     featured
                       ? 'bg-accent-400 text-brand-950'
                       : 'bg-brand-50 text-brand-700 ring-1 ring-brand-100',

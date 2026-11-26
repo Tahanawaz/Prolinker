@@ -73,6 +73,15 @@
   .card {
     @apply rounded-3xl border border-slate-200/80 bg-white shadow-soft;
   }
+
+  /* Lift + soft glow on hover; pair with `group` so inner icons can react. */
+  .card-interactive {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:border-brand-200 hover:shadow-lift;
+  }
+
+  .icon-pop {
+    @apply transition-transform duration-300 ease-out group-hover:-rotate-6 group-hover:scale-110;
+  }
 }
 
 @layer utilities {

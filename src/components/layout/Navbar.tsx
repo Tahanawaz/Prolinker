@@ -11,6 +11,7 @@ import { useScrolled } from '@/hooks/useScrolled';
 import { cn } from '@/lib/cn';
 
 import { LanguageToggle } from './LanguageToggle';
+import { ScrollProgress } from './ScrollProgress';
 
 type Menu = 'services' | 'mobile';
 
@@ -78,8 +79,9 @@ export function Navbar() {
           : 'border-b border-transparent bg-transparent',
       )}
     >
+      <ScrollProgress />
       <nav
-        className="container flex h-[4.5rem] items-center justify-between gap-4"
+        className="container flex h-[4.5rem] animate-nav-in items-center justify-between gap-4"
         aria-label="Main"
       >
         <Logo tone={solid ? 'dark' : 'light'} onClick={close} />

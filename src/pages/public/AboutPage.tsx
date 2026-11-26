@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 
 import { PageHero } from '@/components/marketing/PageHero';
+import { CountUp } from '@/components/ui/CountUp';
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { useContent } from '@/content';
@@ -85,8 +86,13 @@ export default function AboutPage() {
             {copy.values.items.map((value, index) => {
               const Icon = VALUE_ICONS[index] ?? HeartHandshake;
               return (
-                <Reveal as="li" key={value.title} delay={index * 80} className="card p-7">
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-50 text-brand-700 ring-1 ring-brand-100">
+                <Reveal
+                  as="li"
+                  key={value.title}
+                  delay={index * 80}
+                  className="card card-interactive group p-7"
+                >
+                  <span className="icon-pop grid h-12 w-12 place-items-center rounded-2xl bg-brand-50 text-brand-700 ring-1 ring-brand-100">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </span>
                   <h3 className="mt-5 text-lg font-bold text-ink">{value.title}</h3>
@@ -115,7 +121,7 @@ export default function AboutPage() {
               >
                 <dt className="mt-2 text-ink-muted">{item.label}</dt>
                 <dd className="font-display text-5xl font-extrabold text-brand-700" dir="ltr">
-                  {item.value}
+                  <CountUp value={item.value} />
                 </dd>
               </Reveal>
             ))}
