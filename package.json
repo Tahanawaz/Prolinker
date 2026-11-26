@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "@prolinker/client",
   "version": "0.1.0",
   "private": true,
@@ -41,5 +42,46 @@
     "tailwindcss": "^3.4.19",
     "vite": "^8.3.8",
     "vitest": "^5.1.1"
+=======
+  "name": "prolinker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "ProLinker — connecting customers with skilled workers across Pakistan",
+  "workspaces": [
+    "shared",
+    "client"
+  ],
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "dev": "npm run dev -w @prolinker/client",
+    "build": "npm run build -w @prolinker/client",
+    "preview": "npm run preview -w @prolinker/client",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.8",
+    "globals": "^17.14.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.73.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.2"
+>>>>>>> c5185ec9ad4816806c80112b8dd690951a4bde8e
   }
 }
